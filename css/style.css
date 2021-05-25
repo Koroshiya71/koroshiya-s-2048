@@ -168,7 +168,7 @@ h2.subtitle {
     justify-content: center;
     font-size: 53px;
     font-weight: bold;
-    background-image: url(../res/郊外sss.png);
+    background-image: url(../res/2-⑨.png);
     transition: all 0.15s ease;
 }
 
@@ -186,7 +186,7 @@ h2.subtitle {
 
 .tile[data-val="2"],
 .tile[data-val="4"] {
-    color: #dfdad5;
+    color: #ffffff;
 }
 
 .tile[data-val="128"],
@@ -201,46 +201,46 @@ h2.subtitle {
 }
 
 .tile[data-val="4"] {
-    background: #ede0c8;
+    background-image: url(../res/4-文.png);
 }
 
 .tile[data-val="8"] {
-    background: #f2b179;
+    background-image: url(../res/8-铃仙.png);
 }
 
 .tile[data-val="16"] {
-    background: #f59563;
+    background-image: url(../res/16-16.png);
 }
 
 .tile[data-val="32"] {
-    background: #f67c5f;
+    background-image: url(../res/32-alice.png);
 }
 
 .tile[data-val="64"] {
-    background: #f65e3b;
+    background-image: url(../res/64-早苗.png);
 }
 
 .tile[data-val="128"] {
-    background: #edcf72;
+    background-image: url(../res/128-妖梦.png);
 }
 
 .tile[data-val="256"] {
-    background: #edcc61;
+    background-image: url(../res/256-uuz.png);
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.31746), inset 0 0 0 1px rgba(255, 255, 255, 0.19048);
 }
 
 .tile[data-val="512"] {
-    background: #edc850;
+    background-image: url(../res/512-紫.png);
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.39683), inset 0 0 0 1px rgba(255, 255, 255, 0.2381);
 }
 
 .tile[data-val="1024"] {
-    background: #edc53f;
+    background-image: url(../res/1024-黑白.png);
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.47619), inset 0 0 0 1px rgba(255, 255, 255, 0.28571);
 }
 
 .tile[data-val="2048"] {
-    background: #edc22e;
+    background-image: url(../res/2048-灵梦.png);
     box-shadow: 0 0 30px 10px rgba(243, 215, 116, 0.55556), inset 0 0 0 1px rgba(255, 255, 255, 0.33333);
 }
 
@@ -257,54 +257,72 @@ h2.subtitle {
     transition: all 1s ease;
 }
 
-.winning-container p:nth-child(1){
+.winning-container p:nth-child(1) {
     transform: rotate(90deg);
 }
 
-.winning-container.action p:nth-child(1){
+.winning-container.action p:nth-child(1) {
     transform-origin: center;
     animation: winning 1.5s infinite;
 }
 
-.failure-container.action p:nth-child(1){
+.failure-container.action p:nth-child(1) {
     transform-origin: center;
     animation: failure 5s infinite;
 }
 
-@keyframes winning{
-    0%,25%,50%,75%,100%{
-		transform: rotate(90deg) translateX(-5px);
-	}
-	12.5%{
-		transform: rotate(80deg);
-	}
-	37.5%{
-		transform: rotate(70deg);
-	}
-	62.5%{
-		transform: rotate(100deg);
-	}
-	87.5%{
-		transform: rotate(120deg);
-	}
+@keyframes winning {
+
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+        transform: rotate(90deg) translateX(-5px);
+    }
+
+    12.5% {
+        transform: rotate(80deg);
+    }
+
+    37.5% {
+        transform: rotate(70deg);
+    }
+
+    62.5% {
+        transform: rotate(100deg);
+    }
+
+    87.5% {
+        transform: rotate(120deg);
+    }
 }
 
-@keyframes failure{
-    0%,25%,50%,75%,100%{
-		transform: rotate(90deg) scale(0.7,1) rotateX(40deg);
-	}
-	12.5%{
-		transform: rotate(90deg);
-	}
-	37.5%{
-		transform: rotate(90deg);
-	}
-	62.5%{
-		transform: rotate(90deg);
-	}
-	87.5%{
-		transform: rotate(90deg);
-	}
+@keyframes failure {
+
+    0%,
+    25%,
+    50%,
+    75%,
+    100% {
+        transform: rotate(90deg) scale(0.7, 1) rotateX(40deg);
+    }
+
+    12.5% {
+        transform: rotate(90deg);
+    }
+
+    37.5% {
+        transform: rotate(90deg);
+    }
+
+    62.5% {
+        transform: rotate(90deg);
+    }
+
+    87.5% {
+        transform: rotate(90deg);
+    }
 }
 
 .pop-container.action {
