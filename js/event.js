@@ -21,11 +21,14 @@ function event(game) {
         game.move(dir);
     });
 
+    on($('.revoke-btn')[0], 'click', function (e) {
+        e.preventDefault();
+        game.revoke(game.getView());
+    });
     on($('.restart-btn')[0], 'click', function (e) {
         e.preventDefault();
         game.restart();
     });
-
     on(window, 'resize', function () {
         game.view.resize();
     });

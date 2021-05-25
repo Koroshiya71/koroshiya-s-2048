@@ -96,6 +96,7 @@ h1.title {
     font-size: 0.9rem;
 }
 
+.revoke-btn,
 .restart-btn {
     margin: 5px 0 0 5px;
     float: right;

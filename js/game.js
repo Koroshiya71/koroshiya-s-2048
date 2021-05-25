@@ -1,17 +1,19 @@
 var Game = (function () {
-
     var cell = data.cell;
     var over = false;
     var move = false;
-
+    var gameView;
     var Game = function (view) {
 
     };
+
     Game.prototype = {
+        
         init: function (view) {
             var _this = this;
             this.view = view;
             var history = this.getHistory();
+            gameView =view;
             if (history) {
                 this.restoreHistory(history);
             } else {
@@ -23,12 +25,19 @@ var Game = (function () {
                 _this.view.setup();
             });
         },
+        getView: function () {
+            if(this.view)
+            {
+                return this.view;
+            }
+        },
         start: function () {
             for (var i = 0; i < 2; i++) {
                 this.randomAddItem();
             }
         },
         restart: function () {
+            localStorage.lastState = '';
             var _this = this;
             over = false;
             this.initCell();
@@ -47,16 +56,35 @@ var Game = (function () {
                 socre: data.score,
             });
         },
-        winning(){
+        revoke: function (view) {//撤销为上一步
+            var _this = this;
+            this.view = view;
+            console.log(view);
+            var history = this.getLastHistory();
+            if (history) {//上一步信息不为空
+                this.initCell();
+                this.view.restart();
+                this.restoreHistory(history);
+            } else {
+                return;
+            }
+            this.setLastBest();
+            setTimeout(function () {
+                _this.view.setup();
+            });
+        },
+        winning() {
             over = true;
             localStorage.gameState = '';
+            localStorage.lastState = '';
+
             this.view.winning();
         },
-        checkWinning(){
-            var isWinning = cell.find(function(el){
-                return el.val === config.max
+        checkWinning() {
+            var isWinning = cell.find(function (el) {
+                return el.val === config.max;
             });
-            if (isWinning){
+            if (isWinning) {
                 this.winning();
             }
         },
@@ -64,6 +92,8 @@ var Game = (function () {
             over = true;
             localStorage.gameState = '';
             this.view.failure();
+            localStorage.lastState = '';
+
         },
         checkfailure: function () {
             var _this = this;
@@ -94,8 +124,18 @@ var Game = (function () {
             var best = getLocalStorage('bestScore');
             data.best = best || 0;
         },
+        setLastBest: function () {
+            var best = getLocalStorage('bestScore');
+            data.best = best || 0;
+        },
         getHistory: function () {
             var gameState = getLocalStorage('gameState');
+            if (gameState && gameState.socre && gameState.cell) {
+                return gameState;
+            }
+        },
+        getLastHistory: function () {
+            var gameState = getLocalStorage('lastState');
             if (gameState && gameState.socre && gameState.cell) {
                 return gameState;
             }
@@ -105,6 +145,7 @@ var Game = (function () {
             data.score = history.socre;
             cell = data.cell;
             this.view.restoreTile();
+            console.log(1);
         },
         initCell: function () {
             for (var i = 0; i < 16; i++) {
@@ -177,6 +218,7 @@ var Game = (function () {
         },
         move: function (dir) {
             if (over) return;
+            this.saveLast();
             var _this = this;
             var _score = 0;
             var _move = false;
@@ -204,9 +246,18 @@ var Game = (function () {
             if (this.isFull()) {
                 this.checkfailure();
             }
+
             return {
                 move: _move,
             };
+        },
+        saveLast: function () {
+            localStorage.lastScore = data.best;
+            localStorage.lastState = JSON.stringify({
+                cell: data.cell,
+                socre: data.score,
+            });
+
         },
         mergeMove: function (_cell, index, num1, num2, num3) {
             var sum = this.getSum(_cell, num1, num2);
@@ -229,8 +280,8 @@ var Game = (function () {
             if (_cell.length === 0) {
                 return {
                     score: 0,
-                }
-            };
+                };
+            }
             var calls = [
                 function () {
                     _this.normalMove(_cell, index);
