@@ -2,7 +2,6 @@ var Game = (function () {
     var cell = data.cell;
     var over = false;
     var move = false;
-    var gameView;
     var Game = function (view) {
 
     };
@@ -45,11 +44,12 @@ var Game = (function () {
             this.start();
             data.score = 0;
             this.save();
+            this.saveLast();
             setTimeout(function () {
                 _this.view.setup();
             });
         },
-        save: function () {
+        save: function () {//存档
             localStorage.bestScore = data.best;
             localStorage.gameState = JSON.stringify({
                 cell: data.cell,

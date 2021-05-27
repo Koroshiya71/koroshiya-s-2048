@@ -1,5 +1,5 @@
 var View = (function () {
-
+    var gameLevel = 0;
     var tileContainer = $('.tile-container')[0];
     var scoreContainer = $('.score-container')[0];
     var scoreDom = $('.score-container .score')[0];
@@ -82,7 +82,41 @@ var View = (function () {
         createTileHTML: function (obj) {
             var tile = document.createElement('div');
             tile.className = obj.classNames;
-            tile.innerHTML = obj.val;
+            switch (obj.val) {
+                case 2:
+                    tile.innerHTML = "あ";
+                    break;
+                case 4:
+                    tile.innerHTML = "い";
+                    break;
+                case 8:
+                    tile.innerHTML = "う";
+                    break;
+                case 16:
+                    tile.innerHTML = "え";
+                    break;
+                case 32:
+                    tile.innerHTML = "お";
+                    break;
+                case 64:
+                    tile.innerHTML = "か";
+                    break;
+                case 128:
+                    tile.innerHTML = "き";
+                    break;
+                case 256:
+                    tile.innerHTML = "く";
+                    break;
+                case 512:
+                    tile.innerHTML = "け";
+                    break;
+                case 1024:
+                    tile.innerHTML = "こ";
+                    break;
+                case 2048:
+                    tile.innerHTML = "fin";
+                    break;
+            }
             tile.setAttribute('data-index', obj.index);
             tile.setAttribute('data-val', obj.val);
             this.setPos(tile, obj.pos);
@@ -112,7 +146,42 @@ var View = (function () {
             var tile = this.getTile(index);
             var val = data.cell[index].val;
             tile.setAttribute('data-val', val);
-            tile.innerHTML = val;
+            switch (val) {
+                case 2:
+                    tile.innerHTML = "あ";
+                    break;
+                case 4:
+                    tile.innerHTML = "い";
+                    break;
+                case 8:
+                    tile.innerHTML = "う";
+                    break;
+                case 16:
+                    tile.innerHTML = "え";
+                    break;
+                case 32:
+                    tile.innerHTML = "お";
+                    break;
+                case 64:
+                    tile.innerHTML = "か";
+                    break;
+                case 128:
+                    tile.innerHTML = "き";
+                    break;
+                case 256:
+                    tile.innerHTML = "く";
+                    break;
+                case 512:
+                    tile.innerHTML = "け";
+                    break;
+                case 1024:
+                    tile.innerHTML = "こ";
+                    break;
+                case 2048:
+                    tile.innerHTML = "fin";
+                    break;
+            }
+
             tile.classList.add('addition');
             setTimeout(function () {
                 tile.classList.remove('addition');
