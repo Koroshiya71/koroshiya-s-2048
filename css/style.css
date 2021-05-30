@@ -101,7 +101,7 @@ h1.title {
     margin: 5px 0 0 5px;
     float: right;
     padding: 0 8px;
-    background: #926cb1;
+    background: #b796d3;
     color: white;
     height: 40px;
     line-height: 40px;
@@ -118,7 +118,7 @@ h2.subtitle {
     margin-top: 15px;
     width: 450px;
     height: 450px;
-    background: #979ce5;
+    background: #97bbe5;
     border-radius: 6px;
     touch-action: none;
 }
@@ -343,6 +343,6 @@ h2.subtitle {
     justify-content: space-around;
     align-items: flex-end;
     font-size: 0.75rem;
-    color: rgb(215, 195, 247);
-    opacity: 0.7;
+    color: rgb(162, 243, 236);
+    opacity: 0.8;
 }

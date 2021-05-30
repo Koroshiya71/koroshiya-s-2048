@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+<?PHP
+Session_Start();
+?> 
 <html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,6 +32,7 @@
                 </div>
             </div>
         </div>
+ 
         <div class="game-intro">
             <a href="" class="restart-btn">Restart</a>
             <a href="" class="revoke-btn">Revoke</a>
@@ -80,6 +82,8 @@
                 <p>WINNING</p>
             </div>
         </div>
+        <p id="userName"><?php echo "UserName:".$_SESSION["userName"] ?></P>
+
         <div class="footer">
             <span>
                 <p>Crafted by 2018031701027 熊一鹏</p>
@@ -95,6 +99,8 @@
     <script src="js/view.js"></script>
     <script src="js/game.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/jquery-3.6.0.min.js"></script>
+
 </body>
 
 </html>

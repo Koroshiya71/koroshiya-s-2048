@@ -2,6 +2,7 @@ var Game = (function () {
     var cell = data.cell;
     var over = false;
     var move = false;
+    var userName;
     var Game = function (view) {
 
     };
