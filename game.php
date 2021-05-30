@@ -82,12 +82,12 @@ Session_Start();
                 <p>WINNING</p>
             </div>
         </div>
-        <p id="userName"><?php echo "UserName:".$_SESSION["userName"] ?></P>
+        <p id="userName"><?php echo "Player : ".$_SESSION["userName"] ?></P>
 
         <div class="footer">
             <span>
                 <p>Crafted by 2018031701027 熊一鹏</p>
-                <a href="https://github.com/Koroshiya71">@Koroshiya</a>/<a href="https://github.com/Koroshiya71/koroshiya-s-2048">GitHub</a>
+                <a href="http://www.koroshiya.club/">@Koroshiya</a>/<a href="https://github.com/Koroshiya71/koroshiya-s-2048">GitHub</a>
             </span>
 
         </div>

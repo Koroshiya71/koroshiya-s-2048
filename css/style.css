@@ -22,6 +22,14 @@ a {
     cursor: pointer;
 }
 
+#userName{
+    text-align: center;
+    font-size: 30px;
+    color: #7a4213;
+    font-weight: bold;
+
+}
+
 .container {
     position: relative;
     margin: 0 auto;
@@ -171,6 +179,8 @@ h2.subtitle {
     font-weight: bold;
     background-image: url(../res/2-⑨.png);
     transition: all 0.15s ease;
+    background-size:cover
+
 }
 
 .tile.new-tile {
@@ -203,6 +213,7 @@ h2.subtitle {
 
 .tile[data-val="4"] {
     background-image: url(../res/4-文.png);
+    
 }
 
 .tile[data-val="8"] {
