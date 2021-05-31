@@ -2,22 +2,27 @@ var Game = (function () {
     var cell = data.cell;
     var over = false;
     var move = false;
-    var userName=document.getElementById("userName").innerText;
-    var myGameState=userName+"gameState";
-    var myLastState=userName+"lastState";
+    var userName = document.getElementById("userName").innerText;
+    var myGameState = userName + "gameState";
+    var myLastState = userName + "lastState";
     console.log(myGameState);
-    var storage=window.localStorage;
+    var storage = window.localStorage;
+    var myBestScore = userName + "bestScore";
+    var myLastScore = userName + "lastScore";
+
+    data.best=0;
+    
     var Game = function (view) {
 
     };
 
     Game.prototype = {
-        
+
         init: function (view) {
             var _this = this;
             this.view = view;
             var history = this.getHistory();
-            gameView =view;
+            gameView = view;
             if (history) {
                 this.restoreHistory(history);
             } else {
@@ -30,8 +35,7 @@ var Game = (function () {
             });
         },
         getView: function () {
-            if(this.view)
-            {
+            if (this.view) {
                 return this.view;
             }
         },
@@ -41,7 +45,7 @@ var Game = (function () {
             }
         },
         restart: function () {
-            storage.setItem(lastState,"");
+            storage.setItem(lastState, "");
             var _this = this;
             over = false;
             this.initCell();
@@ -54,19 +58,19 @@ var Game = (function () {
                 _this.view.setup();
             });
         },
-        save: function () {//存档
+        save: function () { //存档
 
-            localStorage.bestScore = data.best;
-            storage.setItem(myGameState,JSON.stringify({
+            storage.setItem(myBestScore,data.best) ;
+            storage.setItem(myGameState, JSON.stringify({
                 cell: data.cell,
                 socre: data.score,
             }));
         },
-        revoke: function (view) {//撤销为上一步
+        revoke: function (view) { //撤销为上一步
             var _this = this;
             this.view = view;
             var history = this.getLastHistory();
-            if (history) {//上一步信息不为空
+            if (history) { //上一步信息不为空
                 this.initCell();
                 this.view.restart();
                 this.restoreHistory(history);
@@ -80,8 +84,8 @@ var Game = (function () {
         },
         winning() {
             over = true;
-            storage.setItem(myGameState,"");
-            storage.setItem(myLastState,"");
+            storage.setItem(myGameState, "");
+            storage.setItem(myLastState, "");
 
             this.view.winning();
         },
@@ -95,8 +99,8 @@ var Game = (function () {
         },
         failure: function () {
             over = true;
-            storage.setItem(myGameState,"");
-            storage.setItem(myLastState,"");
+            storage.setItem(myGameState, "");
+            storage.setItem(myLastState, "");
             this.view.failure();
 
         },
@@ -126,11 +130,11 @@ var Game = (function () {
             return same;
         },
         setBest: function () {
-            var best = getLocalStorage('bestScore');
+            var best = getLocalStorage(myBestScore);
             data.best = best || 0;
         },
         setLastBest: function () {
-            var best = getLocalStorage('bestScore');
+            var best = getLocalStorage(myLastScore);
             data.best = best || 0;
         },
         getHistory: function () {
@@ -163,6 +167,8 @@ var Game = (function () {
         addScore: function (score) {
             data.score += score;
             if (data.best < data.score) {
+                this.setBest();
+
                 data.best = data.score;
                 this.view.updateBest();
             }
@@ -257,9 +263,9 @@ var Game = (function () {
             };
         },
         saveLast: function () {
-            localStorage.lastScore = data.best;
+            storage.setItem(myLastScore, data.best);
 
-            storage.setItem(myLastState,localStorage.lastState = JSON.stringify({
+            storage.setItem(myLastState, localStorage.lastState = JSON.stringify({
                 cell: data.cell,
                 socre: data.score,
             }));

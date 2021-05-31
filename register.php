@@ -21,7 +21,7 @@ header("Content-Type:text/html;charset=utf-8");
 			<div class="inputBox"><input type="text" value="" name="codeNum" required="required"
 				placeholder="            请输入验证码" pattern="[0-9]{4}"  title="验证码为4个数字"><label>验证码</label></div>
 			<input type="submit" name="submit" value="确认注册">
-			<input type="button" onclick="window.location.href='sign.php'" value="返回登陆">
+			<input type="button" onclick="window.location.href='index.php'" value="返回登陆">
 			<img src="vericode.php" style="width:100px;height:25px;" id="code"/>
 		</form>
 		</div>

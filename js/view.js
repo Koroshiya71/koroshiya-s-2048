@@ -4,10 +4,10 @@ var View = (function () {
     var scoreContainer = $('.score-container')[0];
     var scoreDom = $('.score-container .score')[0];
     var scoreAddition = $('.score-addition')[0];
-    var bestDom = $('.best-container .score')[0];
+    var bestDom = $('.best-container .best')[0];
     var failureContainer = $('.failure-container')[0];
     var winningContainer = $('.winning-container')[0];
-
+    
     var View = function () {
 
     };
@@ -59,6 +59,7 @@ var View = (function () {
         },
         updateBest: function () {
             bestDom.innerHTML = data.best;
+
         },
         setInfo: function (elem, pos, index) {
             elem.style.left = pos.left + 'px';

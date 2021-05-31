@@ -1,5 +1,6 @@
 <?PHP
 Session_Start();
+
 ?> 
 <html>
 <head>
@@ -28,7 +29,7 @@ Session_Start();
                 </div>
                 <div class="best-container">
                     <p class="title">BEST</p>
-                    <P class="score">0</P>
+                    <P class="best" id="best"><?php echo $_SESSION["bestScore"] ?></P>
                 </div>
             </div>
         </div>
@@ -100,7 +101,5 @@ Session_Start();
     <script src="js/game.js"></script>
     <script src="js/main.js"></script>
     <script src="js/jquery-3.6.0.min.js"></script>
-
 </body>
-
 </html>
