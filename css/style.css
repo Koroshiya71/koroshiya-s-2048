@@ -25,7 +25,7 @@ a {
 #userName{
     text-align: center;
     font-size: 30px;
-    color: #7a4213;
+    color: #ffffff;
     font-weight: bold;
 
 }
@@ -348,7 +348,7 @@ h2.subtitle {
 
 .footer {
     flex: 1;
-    padding: 10px 0;
+    padding: 30px 0;
     text-align: center;
     display: flex;
     justify-content: space-around;
