@@ -1,19 +1,32 @@
 <?PHP
 Session_Start();
 
-?> 
+?>
 <html>
+
 <head>
     <meta charset="UTF-8">
+    <script src="js/jquery-3.6.0.min.js"></script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/keyframes.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/media.css">
     <link rel="shortcut icon" href="./res/icon.ico">
     <title>五十音2048</title>
+    <script>
+        $(document).ready(function() {
+            console.log(localStorage.userName);
+            if (localStorage.userName == "") {
+                window.location.href = "index.php";
+
+            }
+        });
+    </script>;
 </head>
 
 <body>
+
     <div class="container">
         <div class="heading">
             <h1 class="title">
@@ -33,7 +46,7 @@ Session_Start();
                 </div>
             </div>
         </div>
- 
+
         <div class="game-intro">
             <a href="" class="restart-btn">Restart</a>
             <a href="" class="revoke-btn">Revoke</a>
@@ -83,7 +96,7 @@ Session_Start();
                 <p>WINNING</p>
             </div>
         </div>
-        <p id="userName"><?php echo "Player : ".$_SESSION["userName"] ?></P>
+        <p id="userName"><?php echo "Player : " . $_SESSION["userName"] ?></P>
 
         <div class="footer">
             <span>
@@ -100,6 +113,7 @@ Session_Start();
     <script src="js/view.js"></script>
     <script src="js/game.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+
 </body>
+
 </html>

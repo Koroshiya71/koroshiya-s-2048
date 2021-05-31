@@ -5,7 +5,6 @@ var Game = (function () {
     var userName = document.getElementById("userName").innerText;
     var myGameState = userName + "gameState";
     var myLastState = userName + "lastState";
-    console.log(myGameState);
     var storage = window.localStorage;
     var myBestScore = userName + "bestScore";
     var myLastScore = userName + "lastScore";

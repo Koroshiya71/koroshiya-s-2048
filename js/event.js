@@ -12,7 +12,10 @@ function event(game) {
             game.move(num);
         }
     });
+    window.onbeforeunload=function () {
+        localStorage.userName ="";
 
+    };
     on(window, 'keyup', function () {
         down = false;
     });

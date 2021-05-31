@@ -36,6 +36,8 @@ try
 			$_SESSION["userPassword"]=$password;
 
 			// $localBest = "<script>document.write(localStorage.getItem('email'));</script>";
+			echo"<script type='text/javascript'>localStorage.userName='$name';</script>";  
+
 			echo"<script type='text/javascript'>alert('登陆成功');location='game.php';</script>";  
 		}
 	}
