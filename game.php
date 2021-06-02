@@ -42,7 +42,7 @@ Session_Start();
                 </div>
                 <div class="best-container">
                     <p class="title">BEST</p>
-                    <P class="best" id="best"><?php echo $_SESSION["bestScore"] ?></P>
+                    <P class="best" id="best">0</P>
                 </div>
             </div>
         </div>

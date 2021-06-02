@@ -74,7 +74,7 @@ var View = (function () {
             return {
                 left: gridCell.offsetLeft,
                 top: gridCell.offsetTop,
-            }
+            };
         },
         setPos: function (elem, pos) {
             elem.style.left = pos.left + 'px';
