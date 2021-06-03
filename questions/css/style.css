@@ -1,0 +1,60 @@
+*{
+    margin: 0 ;
+    padding: 0 ;
+
+/*    overflow: hidden;*/
+/*
+    outline: solid #f00 1px !important;
+    background: #000 !important;
+    color: #fff !important;*/
+}
+
+body{
+    font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+    color: #32dad1;
+    font-size: 18px;
+    background-image: url(../res/bg.jpg);
+    overflow: hidden;
+    height: 100%;
+}
+
+.startGame{
+    z-index: 10;
+
+    display: flex;/*将对象作为弹性伸缩盒显示*/
+    justify-content:center ; /*子盒子排布的方式，*/
+    align-items:center ;/*子盒子排布的方式，*/
+}
+.startGame .startBtn,.returnBtn{
+    width: 2rem;
+    height: 0.6rem;
+
+    background: rgb(29, 161, 206);
+    color: #FFFFFF;
+    box-shadow: 0 3px 10px #999;
+}
+.gaming{
+    position: relative;
+    margin-top: 15px;
+    width: 450px;
+    height: 600px;
+    border-radius: 6px;
+    touch-action: none;
+    background: rgba(14, 105, 224, 0.76);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.gaming .quiz {
+    font-size: 26px;
+    color: #FFFFFF;
+    margin: 0 auto;
+}
+.gaming .main{
+    font-size: 0.5rem;
+    color: #FFFFFF;
+    margin: 1rem 0;  /*上下外边距为1rem ,左右为0*/
+    background: rgba(0,0,0,0.6); /**/
+    padding: 0.4rem; /*内边距(上下左右边距)为 0.4rem*/
+    border-radius: 0.5rem ; /*圆角*/
+}

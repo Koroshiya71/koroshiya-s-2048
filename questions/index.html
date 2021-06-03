@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>百万答题</title>
+    <title>答题环节</title>
     <script type="text/javascript"  src="./js/rem.js"></script>
     <script type="text/javascript"  src="./js/jquery.js"></script>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
@@ -10,11 +10,13 @@
 <body>
     <div class = "page startGame">
         <button class ="startBtn">开始答题</button>
+        <button class ="returnBtn">返回游戏</button>
+
     </div>
     <div class="page gaming">
-        <div class = "clock">10</div>
+        
         <h1 class = "quiz"></h1>
-        <div class="main"></div>
+        <div class="main" ></div>
     </div>
     <div class="page endGame">
         <h2>恭喜你答对了<span class="num"></span> 题</h2>
@@ -32,17 +34,13 @@
     var reStratBtn = document.querySelector('.reStart') ;
     var questionList = [] ;
     var currentQuestion = null ;
-    var aaa = null ;
-    var clock = 10 ; //倒计时默认为10s
     //记录答题数量
     var score = 0 ;
-    var clockInterval = null;
-
 
     //渲染一道问题
     function renderQuesttion(questionList){
-        var randomNum = parseInt(Math.random()*questionList.length)
-        console.log(randomNum) ;
+        var randomNum = parseInt(Math.random()*questionList.length);
+        $(".main").show() ;
         var del = questionList.splice(randomNum,1) ;
         currentQuestion = del[0] ;
         console.log(currentQuestion) ;
@@ -58,26 +56,12 @@
         }) ;
     }
 
-    //开始倒计时
-    function startClock (){
-        var raise =  clock ;
-        var clockDom = document.querySelector('.clock') ;
-        clockInterval = setInterval(function () {
-            clockDom.innerHTML = raise ;
-            if(raise == 0 ){
-                clearInterval(clockInterval) ; //清除定时器
-                endGame() ;
-            }
-            raise -- ;
-
-        },1000);
-    }
+   
     //进入下个答题
     function nextQuestion(){
        // gamingPage.style.zIndex = 100 ; //几个层叠加覆盖，zindex越大越在上面
         intoPage("gamingPage") ;
         renderQuesttion(questionList) ;
-        startClock () ;
 
     }
     //答题结束
@@ -107,7 +91,6 @@
                 questionList = result;
                 console.log(questionList) ;
                 renderQuesttion(questionList) ;
-                startClock () ;
             }});
 
     }
@@ -120,7 +103,6 @@
             if(currentQuestion.answer == index){
                 score++ ;
                 e.target.style.backgroundColor = "yellowgreen" ;
-                clearInterval(clockInterval) ;
                 setTimeout(function () {
                     nextQuestion() ;
                 },2000) ;
@@ -128,7 +110,6 @@
                 e.target.style.backgroundColor = "deeppink" ;
                 var currAnswerDom = document.querySelector('.optionItem:nth-child('+currentQuestion.answer+')') ;
                 currAnswerDom.style.backgroundColor = "yellowgreen" ;
-                clearInterval(clockInterval) ;
                 setTimeout(function () {
                     endGame();
                 },2000) ;
@@ -161,4 +142,5 @@
     }
 
 </script>
+
 </html>

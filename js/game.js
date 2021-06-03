@@ -44,7 +44,7 @@ var Game = (function () {
             }
         },
         restart: function () {
-            storage.setItem(lastState, "");
+            storage.setItem(myLastState, "");
             var _this = this;
             over = false;
             this.initCell();
@@ -264,7 +264,7 @@ var Game = (function () {
         saveLast: function () {
             storage.setItem(myLastScore, data.best);
 
-            storage.setItem(myLastState, localStorage.lastState = JSON.stringify({
+            storage.setItem(myLastState, JSON.stringify({
                 cell: data.cell,
                 socre: data.score,
             }));
