@@ -19,7 +19,7 @@ try
 	$sql = "SELECT * FROM 2048_users where userName='$name'and userPassword='$password'";
 	if ( $query = $conn->query($sql) ) 
 	{
-		if($result->num_rows < 0)	//如果数据库中找不到对应数据
+		if($query->num_rows <= 0)	//如果数据库中找不到对应数据
 		{
 			echo"<script type='text/javascript'>alert('账号或密码错误'); location='index.php';</script>";  
 		}

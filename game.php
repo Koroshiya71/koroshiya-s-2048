@@ -9,10 +9,10 @@ Session_Start();
     <script src="js/jquery-3.6.0.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/keyframes.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/media.css">
-    <link rel="shortcut icon" href="./res/icon.ico">
+    <link rel="stylesheet"  href="css/keyframes.css" >
+    <link rel="stylesheet"  href="css/style.css">
+    <link rel="stylesheet"  href="css/media.css" >
+    <link rel="shortcut icon" href="./res/icon.ico" >
     <title>五十音2048</title>
     <script>
         $(document).ready(function() {
