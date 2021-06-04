@@ -25,11 +25,11 @@ body{
     justify-content:center ; /*子盒子排布的方式，*/
     align-items:center ;/*子盒子排布的方式，*/
 }
-.startGame .startBtn,.returnBtn{
+.reStart,.startBtn,.returnBtn{
     width: 2rem;
     height: 0.6rem;
 
-    background: rgb(29, 161, 206);
+    background: rgb(48, 96, 112);
     color: #FFFFFF;
     box-shadow: 0 3px 10px #999;
 }
@@ -37,15 +37,17 @@ body{
     position: relative;
     margin-top: 15px;
     width: 450px;
-    height: 600px;
+    height: 700px;
     border-radius: 6px;
     touch-action: none;
-    background: rgba(14, 105, 224, 0.76);
+    background: rgba(44, 77, 121, 0.733);
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 }
 .gaming .quiz {
+    padding: 70px 0;
+
     font-size: 26px;
     color: #FFFFFF;
     margin: 0 auto;
@@ -53,8 +55,13 @@ body{
 .gaming .main{
     font-size: 0.5rem;
     color: #FFFFFF;
-    margin: 1rem 0;  /*上下外边距为1rem ,左右为0*/
+    margin: 0.6rem 0;  /*上下外边距为1rem ,左右为0*/
     background: rgba(0,0,0,0.6); /**/
     padding: 0.4rem; /*内边距(上下左右边距)为 0.4rem*/
     border-radius: 0.5rem ; /*圆角*/
+}
+.gaming .main .optionItem{
+    padding: 0.05rem ;
+    border-radius: 0.1rem;
+    margin: 0.05rem 0rem;
 }
