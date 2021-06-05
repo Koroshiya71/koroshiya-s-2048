@@ -9,20 +9,31 @@ Session_Start();
     <script src="js/jquery-3.6.0.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"  href="css/keyframes.css" >
-    <link rel="stylesheet"  href="css/style.css">
-    <link rel="stylesheet"  href="css/media.css" >
-    <link rel="shortcut icon" href="./res/icon.ico" >
+    <link rel="stylesheet" href="css/keyframes.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="shortcut icon" href="./res/icon.ico">
     <title>五十音2048</title>
     <script>
         $(document).ready(function() {
-            console.log(localStorage.userName);
+            console.log(localStorage.lastTime);
+            if (localStorage.lastTime) {
+                if (Date.now() - localStorage.lastTime >= 30000) {
+                    localStorage.lastTime = Date.now();
+                    localStorage.userName = "";
+                }
+            } else {
+                localStorage.lastTime = Date.now();
+
+            }
+
             if (localStorage.userName == "") {
                 window.location.href = "index.php";
 
             }
         });
     </script>;
+
 </head>
 
 <body>

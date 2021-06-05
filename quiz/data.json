@@ -1,86 +1,141 @@
 [{
   "_v":0,
   "answer" :4,
-  "contributor":"四鲸向海",
+  "contributor":"Koroshiya",
   "curTime":"1516162961",
   "endTime":"1516162976",
   "options" :[
-    "貂蝉",
-    "杨玉环",
-    "王昭君",
-    "赵飞燕"
+    "アイリス",
+    "シンデレラ",
+    "ロミオ",
+    "アリス"
   ],
-  "quiz":"以下选项中哪个不属于古代四大美女?"
+  "quiz":"爱丽丝(arisu)的假名是?"
 },
   {
     "_v":0,
-    "answer" :3,
-    "contributor":"四鲸向海",
+    "answer" :1,
+    "contributor":"Koroshiya",
     "curTime":"1516162961",
     "endTime":"1516162976",
     "options" :[
-      "伍子胥",
-      "鲁迅",
-      "孙中山",
-      "朱德"
+      "王(おう)の力(ちから)",
+      "王(お)の力(ちがら)",
+      "王(おう)の力(ちかな)",
+      "王(おう)の力(ぢから)"
     ],
-    "quiz":"我国的植树节是为了纪念谁?"
+    "quiz":"我的王之力中的“王之力”的假名是?"
   },
   {
     "_v":2,
     "answer" :2,
-    "contributor":"四鲸向海",
+    "contributor":"Koroshiya",
     "curTime":"1516162961",
     "endTime":"1516162976",
     "options" :[
-      "金",
-      "银",
-      "铜",
-      "铁"
+      "佐藤",
+      "佐仓",
+      "井上",
+      "山下"
     ],
-    "quiz":"哪种金属能杀菌?"
+    "quiz":"与桜（さくら）同音的姓氏是?"
   },
   {
     "_v":3,
     "answer" :3,
-    "contributor":"四鲸向海",
+    "contributor":"Koroshiya",
     "curTime":"1516162961",
     "endTime":"1516162976",
     "options" :[
-      "石榴花",
-      "迎春花",
-      "豆蔻花",
-      "茉莉花"
+      "kurujiya",
+      "gorushiya",
+      "koroshiya",
+      "goroshiya"
     ],
-    "quiz":"花语中“妙龄之少女”是什么花?"
+    "quiz":"殺（ころ）し屋（や）的罗马音是?"
   },
   {
     "_v":4,
     "answer" :3,
-    "contributor":"四鲸向海",
+    "contributor":"Koroshiya",
     "curTime":"1516162961",
     "endTime":"1516162976",
     "options" :[
-      "2000",
-      "3000",
-      "4000",
-      "500"
+      "ヶ",
+      "が",
+      "カ",
+      "ラ"
     ],
-    "quiz":"黄金的延展性最好，1克金可以拉长多少米?"
+    "quiz":"か对应的片假名是?"
   },
   {
     "_v":5,
-    "answer" :3,
-    "contributor":"四鲸向海",
+    "answer" :1,
+    "contributor":"Koroshiya",
     "curTime":"1516162961",
     "endTime":"1516162976",
     "options" :[
-      "1/18",
-      "1/80",
-      "1/81",
-      "1/90"
+      "ろ",
+      "る",
+      "ㇽ",
+      "ㇻ"
     ],
-    "quiz":"月球质量是地球质量的?"
+    "quiz":"ロ对应的平假名是?"
+  },
+  {
+    "_v":5,
+    "answer" :2,
+    "contributor":"Koroshiya",
+    "curTime":"1516162961",
+    "endTime":"1516162976",
+    "options" :[
+      "砂石",
+      "砂糖",
+      "洒脱",
+      "岩石"
+    ],
+    "quiz":"佐藤(さと)音同?"
+  },
+  {
+    "_v":5,
+    "answer" :4,
+    "contributor":"Koroshiya",
+    "curTime":"1516162961",
+    "endTime":"1516162976",
+    "options" :[
+      "ざ",
+      "た",
+      "タ",
+      "サ"
+    ],
+    "quiz":"さ对应的片假名是?"
+  },
+  {
+    "_v":5,
+    "answer" :2,
+    "contributor":"Koroshiya",
+    "curTime":"1516162961",
+    "endTime":"1516162976",
+    "options" :[
+      "ま",
+      "も",
+      "マ",
+      "よ"
+    ],
+    "quiz":"モ对应的平假名是?"
+  },
+  {
+    "_v":5,
+    "answer" :2,
+    "contributor":"Koroshiya",
+    "curTime":"1516162961",
+    "endTime":"1516162976",
+    "options" :[
+      "ブルアイズ・ワイト・ドラゴン",
+      "ブルーアイズ・ホワイト・ドラゴン",
+      "ブルアイズ・ホワイト・ドラゴ",
+      "ブルアイズ・ワイト・ドラゴ"
+    ],
+    "quiz":"青眼白龙的假名是?"
   }
-
 ]

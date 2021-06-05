@@ -1,15 +1,15 @@
-*{
-    margin: 0 ;
-    padding: 0 ;
+* {
+    margin: 0;
+    padding: 0;
 
-/*    overflow: hidden;*/
-/*
+    /*    overflow: hidden;*/
+    /*
     outline: solid #f00 1px !important;
     background: #000 !important;
     color: #fff !important;*/
 }
 
-body{
+body {
     font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
     color: #32dad1;
     font-size: 18px;
@@ -18,22 +18,31 @@ body{
     height: 100%;
 }
 
-.startGame{
+.startGame {
     z-index: 10;
 
-    display: flex;/*将对象作为弹性伸缩盒显示*/
-    justify-content:center ; /*子盒子排布的方式，*/
-    align-items:center ;/*子盒子排布的方式，*/
+    display: flex;
+    /*将对象作为弹性伸缩盒显示*/
+    justify-content: center;
+    /*子盒子排布的方式，*/
+    align-items: center;
+    /*子盒子排布的方式，*/
 }
-.reStart,.startBtn,.returnBtn{
+
+.reStart,
+.startBtn,
+.returnBtn {
     width: 2rem;
     height: 0.6rem;
 
     background: rgb(48, 96, 112);
     color: #FFFFFF;
     box-shadow: 0 3px 10px #999;
+    display: block;
+    margin: 0 auto;
 }
-.gaming{
+
+.gaming {
     position: relative;
     margin-top: 15px;
     width: 450px;
@@ -45,6 +54,7 @@ body{
     flex-direction: column;
     margin: 0 auto;
 }
+
 .gaming .quiz {
     padding: 70px 0;
 
@@ -52,16 +62,46 @@ body{
     color: #FFFFFF;
     margin: 0 auto;
 }
-.gaming .main{
-    font-size: 0.5rem;
+
+.gaming .main {
+    font-size: 0.3rem;
     color: #FFFFFF;
-    margin: 0.6rem 0;  /*上下外边距为1rem ,左右为0*/
-    background: rgba(0,0,0,0.6); /**/
-    padding: 0.4rem; /*内边距(上下左右边距)为 0.4rem*/
-    border-radius: 0.5rem ; /*圆角*/
+    margin: 0.6rem 0;
+    /*上下外边距为1rem ,左右为0*/
+    background: rgba(0, 0, 0, 0.6);
+    /**/
+    padding: 0.4rem;
+    /*内边距(上下左右边距)为 0.4rem*/
+    border-radius: 0.5rem;
+    /*圆角*/
 }
-.gaming .main .optionItem{
-    padding: 0.05rem ;
+
+.gaming .main .optionItem {
+    padding: 0.05rem;
     border-radius: 0.1rem;
     margin: 0.05rem 0rem;
+
+}
+
+.num,
+.finalScore {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    font-size: 0.4rem;
+    color: rgb(162, 243, 236);
+    opacity: 0.8;
+
+}
+
+.gaming h2,
+.gaming h3 {
+    padding: 30px 0;
+    text-align: center;
+    justify-content: space-around;
+    align-items: flex-end;
+    font-size: 0.4rem;
+    color: rgb(162, 243, 236);
+    opacity: 0.8;
 }
