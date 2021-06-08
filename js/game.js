@@ -9,8 +9,8 @@ var Game = (function () {
     var myBestScore = userName + "bestScore";
     var myLastScore = userName + "lastScore";
 
-    data.best=0;
-    
+    data.best = 0;
+
     var Game = function (view) {
 
     };
@@ -59,7 +59,7 @@ var Game = (function () {
         },
         save: function () { //存档
 
-            storage.setItem(myBestScore,data.best) ;
+            storage.setItem(myBestScore, data.best);
             storage.setItem(myGameState, JSON.stringify({
                 cell: data.cell,
                 socre: data.score,
@@ -85,7 +85,7 @@ var Game = (function () {
             over = true;
             storage.setItem(myGameState, "");
             storage.setItem(myLastState, "");
-
+            
             this.view.winning();
         },
         checkWinning() {
@@ -100,6 +100,7 @@ var Game = (function () {
             over = true;
             storage.setItem(myGameState, "");
             storage.setItem(myLastState, "");
+            
             this.view.failure();
 
         },

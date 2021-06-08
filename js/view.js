@@ -33,9 +33,17 @@ var View = (function () {
         },
         failure: function () {
             failureContainer.classList.add('action');
+            setTimeout(function () {
+                window.location.href = "./quiz";
+
+            }, 2000);
         },
         winning: function () {
             winningContainer.classList.add('action');
+            setTimeout(function () {
+                window.location.href = "./quiz";
+
+            }, 2000);
         },
         restoreTile: function () {
             var _this = this;

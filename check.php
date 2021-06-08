@@ -37,8 +37,9 @@ try
 
 			// $localBest = "<script>document.write(localStorage.getItem('email'));</script>";
 			echo"<script type='text/javascript'>localStorage.userName='$name';</script>";  
-
-			echo"<script type='text/javascript'>alert('登陆成功');location='game.php';</script>";  
+			echo"<script type='text/javascript'>localStorage.lastTime=Date.now();</script>";   
+			echo"<script type='text/javascript'>alert('登陆成功');location='game.php';</script>";
+			
 		}
 	}
 	else
@@ -51,5 +52,3 @@ catch(PDOException $e)
 {
 	echo $e->getMessage();
 }
-
-?>

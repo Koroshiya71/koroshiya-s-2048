@@ -271,6 +271,8 @@ h2.subtitle {
 
 .winning-container p:nth-child(1) {
     transform: rotate(90deg);
+    color: black,
+
 }
 
 .winning-container.action p:nth-child(1) {
@@ -280,11 +282,14 @@ h2.subtitle {
 
 .failure-container.action p:nth-child(1) {
     transform-origin: center;
+    color: black;
     animation: failure 5s infinite;
+}
+.failure-container p {
+    color: black;
 }
 
 @keyframes winning {
-
     0%,
     25%,
     50%,
