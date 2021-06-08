@@ -6,7 +6,6 @@ Session_Start();
 
 <head>
     <meta charset="UTF-8">
-    <script src="js/jquery-3.6.0.min.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/keyframes.css">
@@ -14,25 +13,7 @@ Session_Start();
     <link rel="stylesheet" href="css/media.css">
     <link rel="shortcut icon" href="./res/icon.ico">
     <title>五十音2048</title>
-    <script>
-        $(document).ready(function() {
-            console.log(localStorage.lastTime);
-            if (localStorage.lastTime) {
-                if (Date.now() - localStorage.lastTime >= 30000) {
-                    localStorage.lastTime = Date.now();
-                    localStorage.userName = "";
-                }
-            } else {
-                localStorage.lastTime = Date.now();
 
-            }
-
-            if (localStorage.userName == "") {
-                window.location.href = "index.php";
-
-            }
-        });
-    </script>;
 
 </head>
 
@@ -69,6 +50,14 @@ Session_Start();
             </p>
         </div>
         <div class="game-container">
+            <div class="choice-container">
+                <button class="choiceBtn" id="choice1">あ行 か行</button>
+                <button class="choiceBtn" id="choice2">さ行 た行</button>
+                <button class="choiceBtn" id="choice3">な行 は行</button>
+                <button class="choiceBtn" id="choice4">ま行 や行</button>
+                <button class="choiceBtn" id="choice5">ら行 わ行</button>
+
+            </div>
             <div class="grid-container">
                 <div class="grid-row">
                     <div class="grid-cell"></div>
@@ -124,7 +113,116 @@ Session_Start();
     <script src="js/view.js"></script>
     <script src="js/game.js"></script>
     <script src="js/main.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
 </body>
+<script>
+    var view = new View();
+    var game = new Game();
+    game.init(view);
+    event(game);
+
+    $(document).ready(function() {
+
+        if (localStorage.lastTime) {
+            if (Date.now() - localStorage.lastTime >= 300000) {
+                localStorage.lastTime = Date.now();
+                localStorage.userName = "";
+            }
+        } else {
+            localStorage.lastTime = Date.now();
+
+        }
+
+        if (localStorage.userName == "") {
+            window.location.href = "index.php";
+        }
+        if (localStorage.haveStarted == "false") {
+            $(".choice-container").show();
+            $(".tile-container").hide();
+            $(".grid-container").hide();
+            $(".winning-container").hide();
+            $(".failure-container").hide();
+        } else {
+
+
+            $(".choice-container").hide();
+
+        }
+        var myBest = document.getElementById("userName").innerText + "bestScore";
+        $("#best").text(getLocalStorage(myBest));
+        console.log(getLocalStorage(myBest));
+    });
+    $("#choice1").click(function() {
+        localStorage.Level = 1;
+        game.initCell();
+        game.restart();
+
+        $(".tile-container").show();
+        $(".grid-container").show();
+        $(".winning-container").show();
+        $(".failure-container").show();
+        $(".choice-container").hide();
+        localStorage.haveStarted = true;
+        console.log(localStorage.Level);
+
+    });
+    $("#choice2").click(function() {
+        localStorage.Level = 2;
+        game.initCell();
+        game.restart();
+
+        $(".tile-container").show();
+        $(".grid-container").show();
+        $(".winning-container").show();
+        $(".failure-container").show();
+        $(".choice-container").hide();
+        localStorage.haveStarted = true;
+        console.log(localStorage.Level);
+
+    });
+    $("#choice3").click(function() {
+        localStorage.Level = 3;
+        game.initCell();
+        game.restart();
+
+        $(".tile-container").show();
+        $(".grid-container").show();
+        $(".winning-container").show();
+        $(".failure-container").show();
+        $(".choice-container").hide();
+        localStorage.haveStarted = true;
+        console.log(localStorage.Level);
+
+    });
+    $("#choice4").click(function() {
+        localStorage.Level = 4;
+        game.initCell();
+        game.restart();
+
+        $(".tile-container").show();
+        $(".grid-container").show();
+        $(".winning-container").show();
+        $(".failure-container").show();
+        $(".choice-container").hide();
+        localStorage.haveStarted = true;
+        console.log(localStorage.Level);
+
+    });
+    $("#choice5").click(function() {
+        localStorage.Level = 5;
+        game.initCell();
+        game.restart();
+
+        $(".tile-container").show();
+        $(".grid-container").show();
+        $(".winning-container").show();
+        $(".failure-container").show();
+        $(".choice-container").hide();
+        localStorage.haveStarted = true;
+        console.log(localStorage.Level);
+
+    });
+</script>;
 
 </html>

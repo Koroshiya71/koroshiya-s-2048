@@ -22,7 +22,7 @@ a {
     cursor: pointer;
 }
 
-#userName{
+#userName {
     text-align: center;
     font-size: 30px;
     color: #ffffff;
@@ -179,8 +179,7 @@ h2.subtitle {
     font-weight: bold;
     background-image: url(../res/2-⑨.png);
     transition: all 0.15s ease;
-    background-size:cover
-
+    background-size: cover
 }
 
 .tile.new-tile {
@@ -213,7 +212,7 @@ h2.subtitle {
 
 .tile[data-val="4"] {
     background-image: url(../res/4-文.png);
-    
+
 }
 
 .tile[data-val="8"] {
@@ -285,11 +284,51 @@ h2.subtitle {
     color: black;
     animation: failure 5s infinite;
 }
+
 .failure-container p {
     color: black;
 }
 
+.choiceBtn {
+
+    height: 15%;
+    bottom: 30px;
+    color: #FFFFFF;
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 4.2%;
+
+
+}
+
+#choice1 {
+
+    background: rgb(105, 214, 190);
+}
+
+#choice2 {
+
+    background: rgb(95, 194, 212);
+}
+
+#choice3 {
+
+    background: rgb(87, 139, 206);
+}
+
+#choice4 {
+
+    background: rgb(99, 115, 207);
+}
+
+#choice5 {
+
+    background: rgb(178, 126, 207);
+}
+
 @keyframes winning {
+
     0%,
     25%,
     50%,
@@ -353,7 +392,6 @@ h2.subtitle {
 
 .footer {
     flex: 1;
-    padding: 30px 0;
     text-align: center;
     display: flex;
     justify-content: space-around;

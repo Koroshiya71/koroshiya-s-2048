@@ -56,6 +56,8 @@ var Game = (function () {
             setTimeout(function () {
                 _this.view.setup();
             });
+            localStorage.haveStarted = false;
+            window.location.reload();
         },
         save: function () { //存档
 
@@ -85,7 +87,8 @@ var Game = (function () {
             over = true;
             storage.setItem(myGameState, "");
             storage.setItem(myLastState, "");
-            
+            localStorage.haveStarted = false;
+
             this.view.winning();
         },
         checkWinning() {
@@ -100,7 +103,8 @@ var Game = (function () {
             over = true;
             storage.setItem(myGameState, "");
             storage.setItem(myLastState, "");
-            
+            localStorage.haveStarted = false;
+
             this.view.failure();
 
         },

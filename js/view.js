@@ -1,5 +1,4 @@
 var View = (function () {
-    var gameLevel = 0;
     var tileContainer = $('.tile-container')[0];
     var scoreContainer = $('.score-container')[0];
     var scoreDom = $('.score-container .score')[0];
@@ -7,7 +6,7 @@ var View = (function () {
     var bestDom = $('.best-container .best')[0];
     var failureContainer = $('.failure-container')[0];
     var winningContainer = $('.winning-container')[0];
-    
+
     var View = function () {
 
     };
@@ -91,41 +90,195 @@ var View = (function () {
         createTileHTML: function (obj) {
             var tile = document.createElement('div');
             tile.className = obj.classNames;
-            switch (obj.val) {
-                case 2:
-                    tile.innerHTML = "あ";
+            switch (localStorage.Level) {
+                case "1":
+
+                    switch (obj.val) {
+                        case 2:
+                            tile.innerHTML = "あ";
+                            break;
+                        case 4:
+                            tile.innerHTML = "い";
+                            break;
+                        case 8:
+                            tile.innerHTML = "う";
+                            break;
+                        case 16:
+                            tile.innerHTML = "え";
+                            break;
+                        case 32:
+                            tile.innerHTML = "お";
+                            break;
+                        case 64:
+                            tile.innerHTML = "か";
+                            break;
+                        case 128:
+                            tile.innerHTML = "き";
+                            break;
+                        case 256:
+                            tile.innerHTML = "く";
+                            break;
+                        case 512:
+                            tile.innerHTML = "け";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "こ";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 4:
-                    tile.innerHTML = "い";
+                case "2":
+                    switch (obj.val) {
+                        case 2:
+                            tile.innerHTML = "さ";
+                            break;
+                        case 4:
+                            tile.innerHTML = "し";
+                            break;
+                        case 8:
+                            tile.innerHTML = "す";
+                            break;
+                        case 16:
+                            tile.innerHTML = "せ";
+                            break;
+                        case 32:
+                            tile.innerHTML = "そ";
+                            break;
+                        case 64:
+                            tile.innerHTML = "た";
+                            break;
+                        case 128:
+                            tile.innerHTML = "ち";
+                            break;
+                        case 256:
+                            tile.innerHTML = "つ";
+                            break;
+                        case 512:
+                            tile.innerHTML = "て";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "と";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 8:
-                    tile.innerHTML = "う";
+                case "3":
+                    switch (obj.val) {
+                        case 2:
+                            tile.innerHTML = "な";
+                            break;
+                        case 4:
+                            tile.innerHTML = "に";
+                            break;
+                        case 8:
+                            tile.innerHTML = "ぬ";
+                            break;
+                        case 16:
+                            tile.innerHTML = "ね";
+                            break;
+                        case 32:
+                            tile.innerHTML = "の";
+                            break;
+                        case 64:
+                            tile.innerHTML = "は";
+                            break;
+                        case 128:
+                            tile.innerHTML = "ひ";
+                            break;
+                        case 256:
+                            tile.innerHTML = "ふ";
+                            break;
+                        case 512:
+                            tile.innerHTML = "へ";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "ほ";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 16:
-                    tile.innerHTML = "え";
+                case "4":
+                    switch (obj.val) {
+                        case 2:
+                            tile.innerHTML = "ま";
+                            break;
+                        case 4:
+                            tile.innerHTML = "み";
+                            break;
+                        case 8:
+                            tile.innerHTML = "む";
+                            break;
+                        case 16:
+                            tile.innerHTML = "め";
+                            break;
+                        case 32:
+                            tile.innerHTML = "も";
+                            break;
+                        case 64:
+                            tile.innerHTML = "や";
+                            break;
+                        case 128:
+                            tile.innerHTML = "い";
+                            break;
+                        case 256:
+                            tile.innerHTML = "ゆ";
+                            break;
+                        case 512:
+                            tile.innerHTML = "え";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "よ";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 32:
-                    tile.innerHTML = "お";
-                    break;
-                case 64:
-                    tile.innerHTML = "か";
-                    break;
-                case 128:
-                    tile.innerHTML = "き";
-                    break;
-                case 256:
-                    tile.innerHTML = "く";
-                    break;
-                case 512:
-                    tile.innerHTML = "け";
-                    break;
-                case 1024:
-                    tile.innerHTML = "こ";
-                    break;
-                case 2048:
-                    tile.innerHTML = "fin";
+                case "5":
+                    switch (obj.val) {
+                        case 2:
+                            tile.innerHTML = "ら";
+                            break;
+                        case 4:
+                            tile.innerHTML = "り";
+                            break;
+                        case 8:
+                            tile.innerHTML = "る";
+                            break;
+                        case 16:
+                            tile.innerHTML = "れ";
+                            break;
+                        case 32:
+                            tile.innerHTML = "ろ";
+                            break;
+                        case 64:
+                            tile.innerHTML = "わ";
+                            break;
+                        case 128:
+                            tile.innerHTML = "い";
+                            break;
+                        case 256:
+                            tile.innerHTML = "う";
+                            break;
+                        case 512:
+                            tile.innerHTML = "え";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "を";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "ん";
+                            break;
+                    }
                     break;
             }
+
             tile.setAttribute('data-index', obj.index);
             tile.setAttribute('data-val', obj.val);
             this.setPos(tile, obj.pos);
@@ -155,39 +308,192 @@ var View = (function () {
             var tile = this.getTile(index);
             var val = data.cell[index].val;
             tile.setAttribute('data-val', val);
-            switch (val) {
-                case 2:
-                    tile.innerHTML = "あ";
+            switch (localStorage.Level) {
+                case "1":
+
+                    switch (val) {
+                        case 2:
+                            tile.innerHTML = "あ";
+                            break;
+                        case 4:
+                            tile.innerHTML = "い";
+                            break;
+                        case 8:
+                            tile.innerHTML = "う";
+                            break;
+                        case 16:
+                            tile.innerHTML = "え";
+                            break;
+                        case 32:
+                            tile.innerHTML = "お";
+                            break;
+                        case 64:
+                            tile.innerHTML = "か";
+                            break;
+                        case 128:
+                            tile.innerHTML = "き";
+                            break;
+                        case 256:
+                            tile.innerHTML = "く";
+                            break;
+                        case 512:
+                            tile.innerHTML = "け";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "こ";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 4:
-                    tile.innerHTML = "い";
+                case "2":
+                    switch (val) {
+                        case 2:
+                            tile.innerHTML = "さ";
+                            break;
+                        case 4:
+                            tile.innerHTML = "し";
+                            break;
+                        case 8:
+                            tile.innerHTML = "す";
+                            break;
+                        case 16:
+                            tile.innerHTML = "せ";
+                            break;
+                        case 32:
+                            tile.innerHTML = "そ";
+                            break;
+                        case 64:
+                            tile.innerHTML = "た";
+                            break;
+                        case 128:
+                            tile.innerHTML = "ち";
+                            break;
+                        case 256:
+                            tile.innerHTML = "つ";
+                            break;
+                        case 512:
+                            tile.innerHTML = "て";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "と";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 8:
-                    tile.innerHTML = "う";
+                case "3":
+                    switch (val) {
+                        case 2:
+                            tile.innerHTML = "な";
+                            break;
+                        case 4:
+                            tile.innerHTML = "に";
+                            break;
+                        case 8:
+                            tile.innerHTML = "ぬ";
+                            break;
+                        case 16:
+                            tile.innerHTML = "ね";
+                            break;
+                        case 32:
+                            tile.innerHTML = "の";
+                            break;
+                        case 64:
+                            tile.innerHTML = "は";
+                            break;
+                        case 128:
+                            tile.innerHTML = "ひ";
+                            break;
+                        case 256:
+                            tile.innerHTML = "ふ";
+                            break;
+                        case 512:
+                            tile.innerHTML = "へ";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "ほ";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 16:
-                    tile.innerHTML = "え";
+                case "4":
+                    switch (val) {
+                        case 2:
+                            tile.innerHTML = "ま";
+                            break;
+                        case 4:
+                            tile.innerHTML = "み";
+                            break;
+                        case 8:
+                            tile.innerHTML = "む";
+                            break;
+                        case 16:
+                            tile.innerHTML = "め";
+                            break;
+                        case 32:
+                            tile.innerHTML = "も";
+                            break;
+                        case 64:
+                            tile.innerHTML = "や";
+                            break;
+                        case 128:
+                            tile.innerHTML = "い";
+                            break;
+                        case 256:
+                            tile.innerHTML = "ゆ";
+                            break;
+                        case 512:
+                            tile.innerHTML = "え";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "よ";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "fin";
+                            break;
+                    }
                     break;
-                case 32:
-                    tile.innerHTML = "お";
-                    break;
-                case 64:
-                    tile.innerHTML = "か";
-                    break;
-                case 128:
-                    tile.innerHTML = "き";
-                    break;
-                case 256:
-                    tile.innerHTML = "く";
-                    break;
-                case 512:
-                    tile.innerHTML = "け";
-                    break;
-                case 1024:
-                    tile.innerHTML = "こ";
-                    break;
-                case 2048:
-                    tile.innerHTML = "fin";
+                case "5":
+                    switch (val) {
+                        case 2:
+                            tile.innerHTML = "ら";
+                            break;
+                        case 4:
+                            tile.innerHTML = "り";
+                            break;
+                        case 8:
+                            tile.innerHTML = "る";
+                            break;
+                        case 16:
+                            tile.innerHTML = "れ";
+                            break;
+                        case 32:
+                            tile.innerHTML = "ろ";
+                            break;
+                        case 64:
+                            tile.innerHTML = "わ";
+                            break;
+                        case 128:
+                            tile.innerHTML = "い";
+                            break;
+                        case 256:
+                            tile.innerHTML = "う";
+                            break;
+                        case 512:
+                            tile.innerHTML = "え";
+                            break;
+                        case 1024:
+                            tile.innerHTML = "を";
+                            break;
+                        case 2048:
+                            tile.innerHTML = "ん";
+                            break;
+                    }
                     break;
             }
 
