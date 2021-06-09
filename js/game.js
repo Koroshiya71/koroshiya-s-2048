@@ -365,7 +365,8 @@ var Game = (function () {
                 var index = random(0, data.cell.length - 1);
                 var exist = data.cell[index].val !== 0;
                 if (!exist) {
-                    this.addItem(index, 2);
+
+                    this.addItem(index, Math.pow(2, Math.floor(Math.random() * 2) + 1));
                     break;
                 }
             }
