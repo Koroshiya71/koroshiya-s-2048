@@ -146,5 +146,11 @@
         gamingPage.style.zIndex = 0;
       }
     }
+    $(document).keydown(function (e) {
+      console.log(1);
+      if (e.keyCode == 83) {
+        endGame();
+      }
+    });
   </script>
 </html>

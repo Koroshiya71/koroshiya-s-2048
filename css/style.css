@@ -199,15 +199,11 @@ h2.subtitle {
     color: #ffffff;
 }
 
-.tile[data-val="128"],
-.tile[data-val="256"],
-.tile[data-val="512"] {
-    font-size: 45px;
-}
 
-.tile[data-val="1024"],
+
+
 .tile[data-val="2048"] {
-    font-size: 33px;
+    font-size: 45px;
 }
 
 .tile[data-val="4"] {
@@ -399,4 +395,17 @@ h2.subtitle {
     font-size: 0.75rem;
     color: rgb(162, 243, 236);
     opacity: 0.8;
+}
+
+#soundBtn {
+    
+    width: 90px;
+    height: 72px;
+    background-image: url(https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/alice4.jpg);
+    background-size: cover;
+    margin: 0 auto;
+    margin-top: 10px;
+
+    transition: all 0.15s ease;
+    
 }

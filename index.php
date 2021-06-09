@@ -8,7 +8,7 @@ header("Content-Type:text/html;charset=utf-8");
 	<meta charset="utf-8">
 	<title>登录</title>
 	<link href="C.css" rel="stylesheet" type="text/css" />
-	<script src="js/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
 </head>
 

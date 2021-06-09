@@ -10,7 +10,7 @@ var View = (function () {
     var winningContainer = $('.winning-container')[0];
     var aCount = 0;
     var iCount = 0;
-    audio.play();
+    var uCount = 0;
     var View = function () {
 
     };
@@ -95,13 +95,14 @@ var View = (function () {
         createTileHTML: function (obj) {
             var tile = document.createElement('div');
             tile.className = obj.classNames;
-            switch (localStorage.Level) {
+            switch (localStorage.getItem(myLevel)) {
                 case "1":
 
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "あ";
-                            if (aCount >= 20 && audio.paused) {
+                            if (aCount >= 20 && audio.paused && localStorage.getItem(mySound) == "true") {
+
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/a.mp3";
                                 audio.play();
                                 aCount = 0;
@@ -111,7 +112,7 @@ var View = (function () {
                             break;
                         case 4:
                             tile.innerHTML = "い";
-                            if (iCount >= 10 && audio.paused) {
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/i.mp3";
                                 audio.play();
                                 iCount = 0;
@@ -151,17 +152,23 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "さ";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/sa.mp3";
-                            audio.play();
+                            if (aCount >= 20 && audio.paused && localStorage.getItem(mySound) == "true") {
+
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/sa.mp3";
+                                audio.play();
+                                aCount = 0;
+                            } else {
+                                aCount++;
+                            }
                             break;
                         case 4:
                             tile.innerHTML = "し";
-                            if (iCount % 3 == 0) {
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/shi.mp3";
                                 audio.play();
+                                iCount = 0;
                             }
                             iCount++;
-
                             break;
                         case 8:
                             tile.innerHTML = "す";
@@ -196,14 +203,21 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "な";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/na.mp3";
-                            audio.play();
+                            if (aCount >= 20 && audio.paused && localStorage.getItem(mySound) == "true") {
+
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/na.mp3";
+                                audio.play();
+                                aCount = 0;
+                            } else {
+                                aCount++;
+                            }
                             break;
                         case 4:
                             tile.innerHTML = "に";
-                            if (iCount % 3 == 0) {
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ni.mp3";
                                 audio.play();
+                                iCount = 0;
                             }
                             iCount++;
                             break;
@@ -240,14 +254,21 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "ま";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ma.mp3";
-                            audio.play();
+                            if (aCount >= 20 && audio.paused && localStorage.getItem(mySound) == "true") {
+
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ma.mp3";
+                                audio.play();
+                                aCount = 0;
+                            } else {
+                                aCount++;
+                            }
                             break;
                         case 4:
                             tile.innerHTML = "み";
-                            if (iCount % 3 == 0) {
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/mi.mp3";
                                 audio.play();
+                                iCount = 0;
                             }
                             iCount++;
                             break;
@@ -284,14 +305,21 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "ら";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ra.mp3";
-                            audio.play();
+                            if (aCount >= 20 && audio.paused && localStorage.getItem(mySound) == "true") {
+
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ra.mp3";
+                                audio.play();
+                                aCount = 0;
+                            } else {
+                                aCount++;
+                            }
                             break;
                         case 4:
                             tile.innerHTML = "り";
-                            if (iCount % 3 == 0) {
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ri.mp3";
                                 audio.play();
+                                iCount = 0;
                             }
                             iCount++;
                             break;
@@ -355,14 +383,14 @@ var View = (function () {
             var tile = this.getTile(index);
             var val = data.cell[index].val;
             tile.setAttribute('data-val', val);
-            switch (localStorage.Level) {
+            switch (localStorage.getItem(myLevel)) {
                 case "1":
 
                     switch (val) {
 
                         case 4:
                             tile.innerHTML = "い";
-                            if (iCount >= 10 && audio.paused) {
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/i.mp3";
                                 audio.play();
                                 iCount = 0;
@@ -371,50 +399,60 @@ var View = (function () {
                             break;
                         case 8:
                             tile.innerHTML = "う";
-                            if (audio.paused) {
+                            if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/u.mp3";
                                 audio.play();
                             }
-
+                            uCount++;
                             break;
                         case 16:
                             tile.innerHTML = "え";
-                            if (audio.paused) {
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/e.mp3";
                                 audio.play();
                             }
                             break;
                         case 32:
                             tile.innerHTML = "お";
-                            if (audio.paused) {
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/o.mp3";
                                 audio.play();
                             }
                             break;
                         case 64:
                             tile.innerHTML = "か";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ka.mp3";
-                            audio.play();
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ka.mp3";
+                                audio.play();
+                            }
                             break;
                         case 128:
                             tile.innerHTML = "き";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ki.mp3";
-                            audio.play();
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ki.mp3";
+                                audio.play();
+                            }
                             break;
                         case 256:
                             tile.innerHTML = "く";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ku.mp3";
-                            audio.play();
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ku.mp3";
+                                audio.play();
+                            }
                             break;
                         case 512:
                             tile.innerHTML = "け";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ke.mp3";
-                            audio.play();
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ke.mp3";
+                                audio.play();
+                            }
                             break;
                         case 1024:
                             tile.innerHTML = "こ";
-                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ko.mp3";
-                            audio.play();
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ko.mp3";
+                                audio.play();
+                            }
                             break;
                         case 2048:
                             tile.innerHTML = "fin";
@@ -426,30 +464,69 @@ var View = (function () {
 
                         case 4:
                             tile.innerHTML = "し";
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/shi.mp3";
+                                audio.play();
+                                iCount = 0;
+                            }
+                            iCount++;
                             break;
                         case 8:
                             tile.innerHTML = "す";
+                            if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/su.mp3";
+                                audio.play();
+                            }
+                            uCount++;
                             break;
                         case 16:
                             tile.innerHTML = "せ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/se.mp3";
+                                audio.play();
+                            }
                             break;
                         case 32:
                             tile.innerHTML = "そ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/so.mp3";
+                                audio.play();
+                            }
                             break;
                         case 64:
                             tile.innerHTML = "た";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ta.mp3";
+                                audio.play();
+                            }
                             break;
                         case 128:
                             tile.innerHTML = "ち";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/chi.mp3";
+                                audio.play();
+                            }
                             break;
                         case 256:
                             tile.innerHTML = "つ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/tsu.mp3";
+                                audio.play();
+                            }
                             break;
                         case 512:
                             tile.innerHTML = "て";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/te.mp3";
+                                audio.play();
+                            }
                             break;
                         case 1024:
                             tile.innerHTML = "と";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/to.mp3";
+                                audio.play();
+                            }
                             break;
                         case 2048:
                             tile.innerHTML = "fin";
@@ -458,35 +535,73 @@ var View = (function () {
                     break;
                 case "3":
                     switch (val) {
-                        case 2:
-                            tile.innerHTML = "な";
-                            break;
+                        
                         case 4:
                             tile.innerHTML = "に";
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ni.mp3";
+                                audio.play();
+                                iCount = 0;
+                            }
+                            iCount++;
+
                             break;
                         case 8:
                             tile.innerHTML = "ぬ";
+                            if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/nu.mp3";
+                                audio.play();
+                            }
+                            uCount++;
                             break;
                         case 16:
                             tile.innerHTML = "ね";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ne.mp3";
+                                audio.play();
+                            }
                             break;
                         case 32:
                             tile.innerHTML = "の";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/no.mp3";
+                                audio.play();
+                            }
                             break;
                         case 64:
                             tile.innerHTML = "は";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ha.mp3";
+                                audio.play();
+                            }
                             break;
                         case 128:
                             tile.innerHTML = "ひ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/hi.mp3";
+                                audio.play();
+                            }
                             break;
                         case 256:
                             tile.innerHTML = "ふ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/hu.mp3";
+                                audio.play();
+                            }
                             break;
                         case 512:
                             tile.innerHTML = "へ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/he.mp3";
+                                audio.play();
+                            }
                             break;
                         case 1024:
                             tile.innerHTML = "ほ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ho.mp3";
+                                audio.play();
+                            }
                             break;
                         case 2048:
                             tile.innerHTML = "fin";
@@ -495,35 +610,73 @@ var View = (function () {
                     break;
                 case "4":
                     switch (val) {
-                        case 2:
-                            tile.innerHTML = "ま";
-                            break;
                         case 4:
                             tile.innerHTML = "み";
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/mi.mp3";
+                                audio.play();
+                                iCount = 0;
+                            }
+                            iCount++;
+
                             break;
                         case 8:
                             tile.innerHTML = "む";
+                            if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/mu.mp3";
+                                audio.play();
+                                uCount = 0;
+                            }
+                            uCount++;
                             break;
                         case 16:
                             tile.innerHTML = "め";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/me.mp3";
+                                audio.play();
+                            }
                             break;
                         case 32:
                             tile.innerHTML = "も";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/mo.mp3";
+                                audio.play();
+                            }
                             break;
                         case 64:
                             tile.innerHTML = "や";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ya.mp3";
+                                audio.play();
+                            }
                             break;
                         case 128:
                             tile.innerHTML = "い";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/i.mp3";
+                                audio.play();
+                            }
                             break;
                         case 256:
                             tile.innerHTML = "ゆ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/yo.mp3";
+                                audio.play();
+                            }
                             break;
                         case 512:
                             tile.innerHTML = "え";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/u.mp3";
+                                audio.play();
+                            }
                             break;
                         case 1024:
-                            tile.innerHTML = "よ";
+                            tile.innerHTML = "よ"
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/yo.mp3";
+                                audio.play();
+                            }
                             break;
                         case 2048:
                             tile.innerHTML = "fin";
@@ -532,38 +685,79 @@ var View = (function () {
                     break;
                 case "5":
                     switch (val) {
-                        case 2:
-                            tile.innerHTML = "ら";
-                            break;
                         case 4:
                             tile.innerHTML = "り";
+                            if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ri.mp3";
+                                audio.play();
+                                iCount = 0;
+                            }
+                            iCount++;
                             break;
                         case 8:
                             tile.innerHTML = "る";
+                            if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ru.mp3";
+                                audio.play();
+                                uCount = 0;
+                            }
+                            uCount++;
                             break;
                         case 16:
                             tile.innerHTML = "れ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/re.mp3";
+                                audio.play();
+                            }
                             break;
                         case 32:
                             tile.innerHTML = "ろ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ro.mp3";
+                                audio.play();
+                            }
                             break;
                         case 64:
                             tile.innerHTML = "わ";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/wa.mp3";
+                                audio.play();
+                            }
                             break;
                         case 128:
                             tile.innerHTML = "い";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/i.mp3";
+                                audio.play();
+                            }
                             break;
                         case 256:
                             tile.innerHTML = "う";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/u.mp3";
+                                audio.play();
+                            }
                             break;
                         case 512:
                             tile.innerHTML = "え";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/e.mp3";
+                                audio.play();
+                            }
                             break;
                         case 1024:
                             tile.innerHTML = "を";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/wo.mp3";
+                                audio.play();
+                            }
                             break;
                         case 2048:
                             tile.innerHTML = "ん";
+                            if (audio.paused && localStorage.getItem(mySound) == "true") {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/n.mp3";
+                                audio.play();
+                            }
                             break;
                     }
                     break;

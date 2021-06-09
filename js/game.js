@@ -1,3 +1,6 @@
+var myHaveStarted = localStorage.userName + "HasStarted";
+var myLevel = localStorage.userName + "Level";
+var mySound = localStorage.userName + "Sound";
 var Game = (function () {
     var cell = data.cell;
     var over = false;
@@ -42,7 +45,16 @@ var Game = (function () {
         },
         start: function () {
             for (var i = 0; i < 2; i++) {
-                this.randomAddItem();
+                if (this.isFull()) return;
+                while (true) {
+                    var index = random(0, data.cell.length - 1);
+                    var exist = data.cell[index].val !== 0;
+                    if (!exist) {
+
+                        this.addItem(index, 2);
+                        break;
+                    }
+                }
             }
         },
         restart: function () {
@@ -60,7 +72,7 @@ var Game = (function () {
             setTimeout(function () {
                 _this.view.setup();
             });
-            localStorage.haveStarted = false;
+            localStorage.setItem(myHaveStarted, false);
             window.location.reload();
         },
         save: function () { //存档
@@ -91,7 +103,8 @@ var Game = (function () {
             over = true;
             storage.setItem(myGameState, "");
             storage.setItem(myLastState, "");
-            localStorage.haveStarted = false;
+            localStorage.setItem(myHaveStarted, false);
+
 
             this.view.winning();
         },
@@ -107,7 +120,8 @@ var Game = (function () {
             over = true;
             storage.setItem(myGameState, "");
             storage.setItem(myLastState, "");
-            localStorage.haveStarted = false;
+            localStorage.setItem(myHaveStarted, false);
+
 
             this.view.failure();
 

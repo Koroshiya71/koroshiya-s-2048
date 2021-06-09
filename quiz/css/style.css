@@ -35,11 +35,12 @@ body {
     width: 2rem;
     height: 0.6rem;
 
-    background: rgb(48, 96, 112);
+    background: rgb(22, 153, 125);
     color: #FFFFFF;
-    box-shadow: 0 3px 10px #999;
     display: block;
     margin: 0 auto;
+    margin-bottom: 6%;
+
 }
 
 .gaming {
@@ -90,7 +91,7 @@ body {
     justify-content: space-around;
     align-items: flex-end;
     font-size: 0.4rem;
-    color: rgb(162, 243, 236);
+    color: rgb(27, 224, 231);
     opacity: 0.8;
 
 }
@@ -102,6 +103,6 @@ body {
     justify-content: space-around;
     align-items: flex-end;
     font-size: 0.4rem;
-    color: rgb(162, 243, 236);
+    color: rgb(193, 240, 236);
     opacity: 0.8;
 }

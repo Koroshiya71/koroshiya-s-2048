@@ -94,9 +94,11 @@ Session_Start();
                 <p>:)</p>
                 <p>WINNING</p>
             </div>
-        </div>
-        <p id="userName"><?php echo "Player : " . $_SESSION["userName"] ?></P>
 
+        </div>
+        <button id="soundBtn"></button>
+
+        <p id="userName"><?php echo "Player : " . $_SESSION["userName"] ?></P>
         <div class="footer">
             <span>
                 <p>Crafted by 2018031701027 熊一鹏</p>
@@ -119,7 +121,17 @@ Session_Start();
     var game = new Game();
     game.init(view);
     event(game);
-    var myHasStarted = localStorage.userName + "HasStarted";
+
+    $("#soundBtn").click(function() {
+        if (localStorage.getItem(mySound) == "true") {
+            localStorage.setItem(mySound, false);
+        } else {
+            localStorage.setItem(mySound, true);
+
+        }
+        console.log(localStorage.getItem(mySound));
+
+    });
     $(document).ready(function() {
 
         if (localStorage.lastTime) {
@@ -135,7 +147,7 @@ Session_Start();
         if (localStorage.userName == "") {
             window.location.href = "index.php";
         }
-        if (localStorage.haveStarted == "false") {
+        if (localStorage.getItem(myHaveStarted) != "true") {
             $(".choice-container").show();
             $(".tile-container").hide();
             $(".grid-container").hide();
@@ -143,7 +155,7 @@ Session_Start();
             $(".failure-container").hide();
         } else {
             $(".choice-container").hide();
-            switch (localStorage.Level) {
+            switch (localStorage.getItem(myLevel)) {
                 case "1":
                     audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/a.mp3";
                     break;
@@ -162,18 +174,21 @@ Session_Start();
 
 
             }
-            audio.play();
+            console.log(localStorage.getItem(mySound));
+            if (localStorage.getItem(mySound) == "true") {
+                audio.play();
+                console.log(1);
+            }
         }
         var myBest = document.getElementById("userName").innerText + "bestScore";
         if (getLocalStorage(myBest).length > 0) {
             $("#best").text(getLocalStorage(myBest));
-        } else
-            $("#best").text(0);
+        }
 
         console.log(getLocalStorage(myBest));
     });
     $("#choice1").click(function() {
-        localStorage.Level = 1;
+        localStorage.setItem(myLevel, 1);
         game.initCell();
         game.restart();
 
@@ -182,12 +197,13 @@ Session_Start();
         $(".winning-container").show();
         $(".failure-container").show();
         $(".choice-container").hide();
-        localStorage.haveStarted = true;
+        localStorage.setItem(myHaveStarted, true);
         console.log(localStorage.Level);
 
     });
     $("#choice2").click(function() {
-        localStorage.Level = 2;
+        localStorage.setItem(myLevel, 2);
+
         game.initCell();
         game.restart();
 
@@ -196,12 +212,14 @@ Session_Start();
         $(".winning-container").show();
         $(".failure-container").show();
         $(".choice-container").hide();
-        localStorage.haveStarted = true;
+        localStorage.setItem(myHaveStarted, true);
+
         console.log(localStorage.Level);
 
     });
     $("#choice3").click(function() {
-        localStorage.Level = 3;
+        localStorage.setItem(myLevel, 3);
+
         game.initCell();
         game.restart();
 
@@ -210,12 +228,14 @@ Session_Start();
         $(".winning-container").show();
         $(".failure-container").show();
         $(".choice-container").hide();
-        localStorage.haveStarted = true;
+        localStorage.setItem(myHaveStarted, true);
+
         console.log(localStorage.Level);
 
     });
     $("#choice4").click(function() {
-        localStorage.Level = 4;
+        localStorage.setItem(myLevel, 4);
+
         game.initCell();
         game.restart();
 
@@ -224,22 +244,23 @@ Session_Start();
         $(".winning-container").show();
         $(".failure-container").show();
         $(".choice-container").hide();
-        localStorage.haveStarted = true;
+        localStorage.setItem(myHaveStarted, true);
+
         console.log(localStorage.Level);
 
     });
     $("#choice5").click(function() {
-        localStorage.Level = 5;
+        localStorage.setItem(myLevel, 5);
+
         game.initCell();
         game.restart();
-        audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/a.mp3";
-        audio.play();
         $(".tile-container").show();
         $(".grid-container").show();
         $(".winning-container").show();
         $(".failure-container").show();
         $(".choice-container").hide();
-        localStorage.haveStarted = true;
+        localStorage.setItem(myHaveStarted, true);
+
         console.log(localStorage.Level);
 
     });
