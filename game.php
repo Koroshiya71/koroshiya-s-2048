@@ -18,7 +18,6 @@ Session_Start();
 </head>
 
 <body>
-
     <div class="container">
         <div class="heading">
             <h1 class="title">
@@ -112,7 +111,6 @@ Session_Start();
     <script src="js/event.js"></script>
     <script src="js/view.js"></script>
     <script src="js/game.js"></script>
-    <script src="js/main.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
 </body>
@@ -121,7 +119,7 @@ Session_Start();
     var game = new Game();
     game.init(view);
     event(game);
-
+    var myHasStarted = localStorage.userName + "HasStarted";
     $(document).ready(function() {
 
         if (localStorage.lastTime) {
@@ -144,13 +142,34 @@ Session_Start();
             $(".winning-container").hide();
             $(".failure-container").hide();
         } else {
-
-
             $(".choice-container").hide();
+            switch (localStorage.Level) {
+                case "1":
+                    audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/a.mp3";
+                    break;
+                case "2":
+                    audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/sa.mp3";
+                    break;
+                case "3":
+                    audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/na.mp3";
+                    break;
+                case "4":
+                    audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ma.mp3";
+                    break;
+                case "5":
+                    audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ra.mp3";
+                    break;
 
+
+            }
+            audio.play();
         }
         var myBest = document.getElementById("userName").innerText + "bestScore";
-        $("#best").text(getLocalStorage(myBest));
+        if (getLocalStorage(myBest).length > 0) {
+            $("#best").text(getLocalStorage(myBest));
+        } else
+            $("#best").text(0);
+
         console.log(getLocalStorage(myBest));
     });
     $("#choice1").click(function() {
@@ -213,7 +232,8 @@ Session_Start();
         localStorage.Level = 5;
         game.initCell();
         game.restart();
-
+        audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/a.mp3";
+        audio.play();
         $(".tile-container").show();
         $(".grid-container").show();
         $(".winning-container").show();

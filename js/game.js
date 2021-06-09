@@ -18,6 +18,8 @@ var Game = (function () {
     Game.prototype = {
 
         init: function (view) {
+
+
             var _this = this;
             this.view = view;
             var history = this.getHistory();
@@ -45,11 +47,13 @@ var Game = (function () {
         },
         restart: function () {
             storage.setItem(myLastState, "");
+            storage.setItem(myGameState, "");
+
             var _this = this;
             over = false;
+
             this.initCell();
             this.view.restart();
-            this.start();
             data.score = 0;
             this.save();
             this.saveLast();

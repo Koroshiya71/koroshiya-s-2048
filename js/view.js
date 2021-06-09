@@ -1,3 +1,5 @@
+var audio = new Audio(); //这里的路径写上mp3文件在项目中的绝对路径
+
 var View = (function () {
     var tileContainer = $('.tile-container')[0];
     var scoreContainer = $('.score-container')[0];
@@ -6,7 +8,9 @@ var View = (function () {
     var bestDom = $('.best-container .best')[0];
     var failureContainer = $('.failure-container')[0];
     var winningContainer = $('.winning-container')[0];
-
+    var aCount = 0;
+    var iCount = 0;
+    audio.play();
     var View = function () {
 
     };
@@ -20,6 +24,7 @@ var View = (function () {
         },
         restart: function () {
             tileContainer.innerHTML = "";
+
         },
         resize: function () {
             var _this = this;
@@ -96,9 +101,22 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "あ";
+                            if (aCount >= 20 && audio.paused) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/a.mp3";
+                                audio.play();
+                                aCount = 0;
+                            } else {
+                                aCount++;
+                            }
                             break;
                         case 4:
                             tile.innerHTML = "い";
+                            if (iCount >= 10 && audio.paused) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/i.mp3";
+                                audio.play();
+                                iCount = 0;
+                            }
+                            iCount++;
                             break;
                         case 8:
                             tile.innerHTML = "う";
@@ -133,9 +151,17 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "さ";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/sa.mp3";
+                            audio.play();
                             break;
                         case 4:
                             tile.innerHTML = "し";
+                            if (iCount % 3 == 0) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/shi.mp3";
+                                audio.play();
+                            }
+                            iCount++;
+
                             break;
                         case 8:
                             tile.innerHTML = "す";
@@ -170,9 +196,16 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "な";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/na.mp3";
+                            audio.play();
                             break;
                         case 4:
                             tile.innerHTML = "に";
+                            if (iCount % 3 == 0) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ni.mp3";
+                                audio.play();
+                            }
+                            iCount++;
                             break;
                         case 8:
                             tile.innerHTML = "ぬ";
@@ -207,9 +240,16 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "ま";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ma.mp3";
+                            audio.play();
                             break;
                         case 4:
                             tile.innerHTML = "み";
+                            if (iCount % 3 == 0) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/mi.mp3";
+                                audio.play();
+                            }
+                            iCount++;
                             break;
                         case 8:
                             tile.innerHTML = "む";
@@ -244,9 +284,16 @@ var View = (function () {
                     switch (obj.val) {
                         case 2:
                             tile.innerHTML = "ら";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ra.mp3";
+                            audio.play();
                             break;
                         case 4:
                             tile.innerHTML = "り";
+                            if (iCount % 3 == 0) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ri.mp3";
+                                audio.play();
+                            }
+                            iCount++;
                             break;
                         case 8:
                             tile.innerHTML = "る";
@@ -312,35 +359,62 @@ var View = (function () {
                 case "1":
 
                     switch (val) {
-                        case 2:
-                            tile.innerHTML = "あ";
-                            break;
+
                         case 4:
                             tile.innerHTML = "い";
+                            if (iCount >= 10 && audio.paused) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/i.mp3";
+                                audio.play();
+                                iCount = 0;
+                            }
+                            iCount++;
                             break;
                         case 8:
                             tile.innerHTML = "う";
+                            if (audio.paused) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/u.mp3";
+                                audio.play();
+                            }
+
                             break;
                         case 16:
                             tile.innerHTML = "え";
+                            if (audio.paused) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/e.mp3";
+                                audio.play();
+                            }
                             break;
                         case 32:
                             tile.innerHTML = "お";
+                            if (audio.paused) {
+                                audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/o.mp3";
+                                audio.play();
+                            }
                             break;
                         case 64:
                             tile.innerHTML = "か";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ka.mp3";
+                            audio.play();
                             break;
                         case 128:
                             tile.innerHTML = "き";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ki.mp3";
+                            audio.play();
                             break;
                         case 256:
                             tile.innerHTML = "く";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ku.mp3";
+                            audio.play();
                             break;
                         case 512:
                             tile.innerHTML = "け";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ke.mp3";
+                            audio.play();
                             break;
                         case 1024:
                             tile.innerHTML = "こ";
+                            audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/ko.mp3";
+                            audio.play();
                             break;
                         case 2048:
                             tile.innerHTML = "fin";
@@ -349,9 +423,7 @@ var View = (function () {
                     break;
                 case "2":
                     switch (val) {
-                        case 2:
-                            tile.innerHTML = "さ";
-                            break;
+
                         case 4:
                             tile.innerHTML = "し";
                             break;
