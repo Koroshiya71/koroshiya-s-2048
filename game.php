@@ -37,7 +37,6 @@ Session_Start();
                 </div>
             </div>
         </div>
-
         <div class="game-intro">
             <a href="" class="restart-btn">Restart</a>
             <a href="" class="revoke-btn">Revoke</a>
@@ -97,7 +96,6 @@ Session_Start();
 
         </div>
         <button id="soundBtn"></button>
-
         <p id="userName"><?php echo "Player : " . $_SESSION["userName"] ?></P>
         <div class="footer">
             <span>
@@ -175,6 +173,9 @@ Session_Start();
 
             }
             console.log(localStorage.getItem(mySound));
+            if (!localStorage.getItem(mySound)) {
+                localStorage.setItem(mySound, true);
+            }
             if (localStorage.getItem(mySound) == "true") {
                 audio.play();
                 console.log(1);
@@ -253,7 +254,7 @@ Session_Start();
         localStorage.setItem(myLevel, 5);
 
         game.initCell();
-        game.restart();
+        game.restart(); 
         $(".tile-container").show();
         $(".grid-container").show();
         $(".winning-container").show();

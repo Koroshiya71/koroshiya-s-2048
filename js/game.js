@@ -17,33 +17,34 @@ var Game = (function () {
     var Game = function (view) {
 
     };
-
     Game.prototype = {
 
-        init: function (view) {
+        init: function (view) {//初始化游戏
 
 
             var _this = this;
             this.view = view;
-            var history = this.getHistory();
+            var history = this.getHistory();//获取历史游戏状态，如果无记录，则为空
             gameView = view;
+            //若有历史存档，则读取存档,否则重新初始化方块
             if (history) {
                 this.restoreHistory(history);
+                
             } else {
                 this.initCell();
                 this.start();
             }
-            this.setBest();
+            this.setBest();//设置并显示最高分
             setTimeout(function () {
-                _this.view.setup();
+                _this.view.setup();//装载游戏视图
             });
         },
-        getView: function () {
+        getView: function () {//获取当前视图
             if (this.view) {
                 return this.view;
             }
         },
-        start: function () {
+        start: function () {//在随机位置生成两个val为2的最低级方块
             for (var i = 0; i < 2; i++) {
                 if (this.isFull()) return;
                 while (true) {
@@ -249,12 +250,14 @@ var Game = (function () {
         getSum: function (obj, i, j) {
             return obj[i].val + obj[j].val;
         },
-        move: function (dir) {
+        move: function (dir) {//移动方法
             if (over) return;
-            this.saveLast();
+            this.saveLast();//在移动前先保存上一步状态，用于实现撤销功能
             var _this = this;
             var _score = 0;
             var _move = false;
+
+            //根据移动的方向产生新的移动后的cell[]数组
             var new_cell = [];
             if (dir === 0 || dir === 2) {
                 new_cell = this.chunkX();
@@ -264,19 +267,20 @@ var Game = (function () {
             if (dir === 2 || dir === 3) {
                 new_cell = this.arrayInnerReverse(new_cell);
             }
+
             new_cell.forEach(function (arr, index) {
                 var moveInfo = _this.moving(arr, indexs[dir][index]);
                 _score += moveInfo.score;
             });
-            this.addScore(_score);
-            if (move) {
+            this.addScore(_score);//加分
+            if (move) {//如果成功进行了移动，随机生成一个新的方格
                 this.randomAddItem();
                 _move = true;
                 move = false;
             }
-            this.save();
-            this.checkWinning();
-            if (this.isFull()) {
+            this.save();//存档
+            this.checkWinning();//胜利检测
+            if (this.isFull()) {//失败检测
                 this.checkfailure();
             }
 
@@ -305,10 +309,10 @@ var Game = (function () {
                 _this.updateItem(_cell[i].index, index[i]);
             });
         },
-        moving: function (arr, index) {
+        moving: function (arr, index) {//方格移动合并
             var _this = this;
             var _score = 0;
-            var _cell = arr.filter(function (el) {
+            var _cell = arr.filter(function (el) {//过滤出val值不为0的方格，即游戏中已生成的假名方格
                 return el.val !== 0;
             });
             if (_cell.length === 0) {
@@ -317,13 +321,14 @@ var Game = (function () {
                 };
             }
             var calls = [
-                function () {
+                function () {//先进行普通移动
                     _this.normalMove(_cell, index);
                 },
+                /*判断合并*/
                 function () {
                     if (_cell[0].val === _cell[1].val) {
-                        _this.mergeMove(_cell, index, 0, 1, 0);
-                        _score += config.bonus_point;
+                        _this.mergeMove(_cell, index, 0, 1, 0);//合并移动
+                        _score += config.bonus_point;//累计加分
                     } else {
                         _this.normalMove(_cell, index);
                     }
@@ -363,7 +368,7 @@ var Game = (function () {
                 }
             ];
             calls[_cell.length - 1]();
-            return {
+            return {//返回加分总值
                 score: _score,
             };
         },
@@ -377,7 +382,7 @@ var Game = (function () {
             if (this.isFull()) return;
             while (true) {
                 var index = random(0, data.cell.length - 1);
-                var exist = data.cell[index].val !== 0;
+                var exist = data.cell[index].val !== 0;8
                 if (!exist) {
 
                     this.addItem(index, Math.pow(2, Math.floor(Math.random() * 2) + 1));

@@ -402,6 +402,7 @@ var View = (function () {
                             if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/u.mp3";
                                 audio.play();
+                                uCount=0;
                             }
                             uCount++;
                             break;
@@ -461,7 +462,6 @@ var View = (function () {
                     break;
                 case "2":
                     switch (val) {
-
                         case 4:
                             tile.innerHTML = "し";
                             if (iCount >= 10 && audio.paused && localStorage.getItem(mySound) == "true") {
@@ -476,6 +476,8 @@ var View = (function () {
                             if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/su.mp3";
                                 audio.play();
+                                uCount=0;
+
                             }
                             uCount++;
                             break;
@@ -551,6 +553,8 @@ var View = (function () {
                             if (uCount >= 3 && audio.paused && localStorage.getItem(mySound) == "true") {
                                 audio.src = "https://koroshiya-image-host.oss-cn-shenzhen.aliyuncs.com/sound/sound/nu.mp3";
                                 audio.play();
+                                uCount=0;
+
                             }
                             uCount++;
                             break;

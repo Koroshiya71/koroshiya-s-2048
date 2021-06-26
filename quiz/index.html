@@ -44,8 +44,7 @@
     //渲染一道问题
     function renderQuesttion(questionList) {
       var randomNum = parseInt(Math.random() * questionList.length);
-      $(".main").show();
-
+      $(".main").show();//显示主游戏页面
       var del = questionList.splice(randomNum, 1);
       currentQuestion = del[0];
       if (!currentQuestion) {
@@ -54,7 +53,6 @@
       }
       main.innerHTML = ""; //每次初始化都清空之前的内容
       h1.innerHTML = currentQuestion.quiz; //渲染标题
-
       currentQuestion.options.forEach(function (item, index) {
         var newDiv = document.createElement("div");
         newDiv.className = "optionItem";
@@ -100,8 +98,8 @@
         },
       });
     };
-
-    main.addEventListener("click", function (e) {
+  
+    main.addEventListener("click", function (e) {//答题逻辑
       console.log(e);
       if (e.target.className == "optionItem") {
         var index = e.target.dataset.index;
